@@ -40,6 +40,17 @@
   </form>
 </div>
 <canvas id="fireworks"></canvas>
+  <audio id="bg-music" autoplay muted loop>
+    <source src="your-music-file.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    window.addEventListener("click", function() {
+        let music = document.getElementById("bg-music");
+        music.muted = false; // Unmute on user interaction
+    }, { once: true });
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
