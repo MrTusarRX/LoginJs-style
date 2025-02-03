@@ -1,4 +1,3 @@
-// Fireworks Canvas Setup
 const fireworksCanvas = document.getElementById("fireworks");
 const ctx = fireworksCanvas.getContext("2d");
 
@@ -51,8 +50,6 @@ function showFireworks() {
   createParticle(window.innerWidth / 2, window.innerHeight / 2);
   animateParticles();
 }
-
-// Vanta Birds Effect
 VANTA.BIRDS({
   el: "body",
   mouseControls: true,
@@ -63,8 +60,6 @@ VANTA.BIRDS({
   scale: 1.0,
   scaleMobile: 1.0,
 });
-
-// Handle Login
 function handleLogin() {
   const formContainer = document.getElementById("form-container");
   const errorMessage = document.getElementById("error-message");
@@ -74,8 +69,7 @@ function handleLogin() {
   setTimeout(() => {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
-    // Send login request to PHP server
+    
     fetch('login.php', {
       method: 'POST',
       headers: {
@@ -86,18 +80,14 @@ function handleLogin() {
     .then(response => response.json())
     .then(data => {
       if (data.status === 'success') {
-        // Login successful
         formContainer.classList.add("hidden");
         showFireworks();
-
-        // Redirect to index.php after 5 seconds
         if (data.redirect) {
           setTimeout(() => {
             window.location.href = 'index.php';
-          }, 1000); // 5 seconds delay
+          }, 1000); 
         }
       } else {
-        // Login failed
         errorMessage.style.display = "block";
         showFireworks();
         formContainer.classList.remove("tornado");
@@ -111,8 +101,6 @@ function handleLogin() {
     });
   }, 1000);
 }
-
-// Show Sign Up Form
 function showSignUp() {
   const loginForm = document.getElementById("login-form");
   const signUpForm = document.getElementById("signup-form");
@@ -127,8 +115,6 @@ function showSignUp() {
     loginForm.classList.remove("rotate-left-right");
   }, 1000);
 }
-
-// Show Login Form
 function showLogin() {
   const loginForm = document.getElementById("login-form");
   const signUpForm = document.getElementById("signup-form");
@@ -143,8 +129,6 @@ function showLogin() {
     signUpForm.classList.remove("rotate-left-right");
   }, 1000);
 }
-
-// Handle Sign Up
 function handleSignUp() {
   alert("Signed Up Successfully!");
 }
